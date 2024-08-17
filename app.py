@@ -6,6 +6,15 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 import plotly.figure_factory as ff
+import zipfile
+
+zip_file_path = 'athlete_events.zip
+# Extract the zip file
+with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+    zip_ref.extractall()
+
+# Load the CSV file from the extracted contents
+df = pd.read_csv('athlete_events.csv')
 
 df = pd.read_csv('/Users/kumararyan/Downloads/archive/athlete_events.csv')
 region_df = pd.read_csv('/Users/kumararyan/Downloads/archive/noc_regions.csv')
