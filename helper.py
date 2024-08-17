@@ -50,7 +50,11 @@ def country_year_list(df):
     return years, country
 
 def data_over_time(df, col):
-    # Get the count of unique values per year
+    # Check if 'Year' and the specified column exist in the DataFrame
+    if 'Year' not in df.columns or col not in df.columns:
+        raise KeyError(f"Required columns 'Year' or '{col}' are missing from the DataFrame")
+
+    # Get unique counts of years and specified column values
     nations_over_time = df.drop_duplicates(['Year', col])['Year'].value_counts().reset_index()
     
     # Rename columns
@@ -70,6 +74,7 @@ def data_over_time(df, col):
     print("DataFrame after sorting:", nations_over_time.head())
     
     return nations_over_time
+
 
 
 def most_successful(df, sport):
