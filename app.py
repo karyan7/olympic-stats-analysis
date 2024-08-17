@@ -29,7 +29,7 @@ df = preprocessor.preprocess(df, region_df)
 
 st.sidebar.title("Olympics Analysis")
 st.sidebar.image(
-    'path_to_image.png')  # Replace with a relative path or URL to your image file
+    'png-clipart-2024-summer-olympics-brand-circle-area-olympic-rings-olympics-logo-text-sport.png')  # Replace with a relative path or URL to your image file
 user_menu = st.sidebar.radio(
     'Select an Option',
     ('Medal Tally', 'Overall Analysis', 'Country-wise Analysis', 'Athlete wise Analysis')
