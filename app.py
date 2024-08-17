@@ -29,7 +29,7 @@ df = preprocessor.preprocess(df, region_df)
 
 st.sidebar.title("Olympics Analysis")
 st.sidebar.image(
-    '/Users/kumararyan/Downloads/png-clipart-2024-summer-olympics-brand-circle-area-olympic-rings-olympics-logo-text-sport.png')
+    'png-clipart-2024-summer-olympics-brand-circle-area-olympic-rings-olympics-logo-text-sport.png')
 user_menu = st.sidebar.radio(
     'Select an Option',
     ('Medal Tally', 'Overall Analysis',
