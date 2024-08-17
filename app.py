@@ -13,14 +13,16 @@ zip_file_path = 'athlete_events.csv.zip'
 with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
     zip_ref.extractall()
     
-zip_file_path = 'athlete_events.csv.zip'
+zip_file_path1 = 'noc_regions.csv.zip'
+# Extract the zip file
+with zipfile.ZipFile(zip_file_path1, 'r') as zip_ref:
+    zip_ref.extractall()
+
     
 
 # Load the CSV file from the extracted contents
 df = pd.read_csv('athlete_events.csv')
-
-df = pd.read_csv('/Users/kumararyan/Downloads/archive/athlete_events.csv')
-region_df = pd.read_csv('/Users/kumararyan/Downloads/archive/noc_regions.csv')
+region_df = pd.read_csv('noc_regions.csv')
 
 df = preprocessor.preprocess(df, region_df)
 
