@@ -99,26 +99,20 @@ if user_menu == 'Overall Analysis':
 
 
 elif user_menu == 'Country-wise Analysis':
-    st.sidebar.header("Country-wise Analysis")
-    countries = df['region'].unique().tolist()
-    selected_country = st.sidebar.selectbox("Select Country", countries)
-    
-    st.title(f"{selected_country} Performance")
-    
-    fig = plt.figure(figsize=(12, 5))
-    plt.title("Medal Tally")
-    ax = sns.heatmap(helper.country_event_heatmap(df, selected_country), annot=True, cmap="Blues")
-    st.pyplot(fig)
+    st.sidebar.title('Country-wise Analysis')
 
-    fig = plt.figure(figsize=(12, 5))
-    plt.title("Year-wise Medal Tally")
-    yearwise = helper.yearwise_medal_tally(df, selected_country)
-    ax = sns.lineplot(data=yearwise, x='Year', y='Medal')
-    st.pyplot(fig)
+    country_list = df['region'].dropna().unique().tolist()
+    country_list.sort()
 
-    most_successful = helper.most_successful_countrywise(df, selected_country)
-    st.title(f"Most Successful Athletes from {selected_country}")
-    st.table(most_successful)
+    selected_country = st.sidebar.selectbox('Select a Country', country_list)
+
+    try:
+        country_df = helper.most_successful_countrywise(df, selected_country)
+        st.title("Top 10 Athletes of " + selected_country)
+        st.table(country_df)
+    except KeyError as e:
+        st.error(f"An error occurred: {e}")
+
 
 elif user_menu == 'Athlete wise Analysis':
     st.sidebar.header("Athlete wise Analysis")
