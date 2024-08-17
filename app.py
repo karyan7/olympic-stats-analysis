@@ -51,7 +51,7 @@ if user_menu == 'Medal Tally':
         st.title(f"{selected_country} performance in {selected_year} Olympics")
     st.table(medal_tally)
 
-elif user_menu == 'Overall Analysis':
+if user_menu == 'Overall Analysis':
     editions = df['Year'].unique().shape[0] - 1
     cities = df['City'].unique().shape[0]
     sports = df['Sport'].unique().shape[0]
@@ -96,6 +96,7 @@ elif user_menu == 'Overall Analysis':
     fig = px.line(athlete_over_time, x="Edition", y="Name")
     st.title("Athletes over the years")
     st.plotly_chart(fig)
+
 
 elif user_menu == 'Country-wise Analysis':
     st.sidebar.header("Country-wise Analysis")
